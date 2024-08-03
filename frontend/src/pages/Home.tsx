@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as Bootstrap from "react-bootstrap";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -21,7 +22,7 @@ const LoginButton = (props : any) => <a href={`${backendUrl}/api/connect/${props
     <button style={{ width: '150px' }}>Connect to {props.providerName}</button>
   </a>;
 
-const LogoutButton = (props : any) => <button onClick={props.onClick}>Logout</button>;
+const LogoutButton = (props : any) => <button onClick={props.onClick}></button>;
 
 const Home = (props: any) => {
   const [isLogged, setIsLogged] = useState(!!localStorage.getItem('jwt'));
@@ -36,7 +37,7 @@ const Home = (props: any) => {
   let buttons;
 
   if (isLogged) {
-    buttons = <LogoutButton onClick={logout} />;
+    buttons = <Bootstrap.Button onClick={logout}>Logout</Bootstrap.Button>;
   } else {
     buttons = <ul style={{ listStyleType: 'none' }}>
       {providersNames.map((providerName, i) => <li key={providerName}>

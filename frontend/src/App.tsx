@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import './App.scss';
 
+import * as Bootstrap from "react-bootstrap";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -22,12 +24,18 @@ const App = () => {
   }
 
   return (
-    <Router>
-        <Routes>
-          <Route path="/connect/:providerName/redirect" Component={LoginRedirect} />
-          <Route path="/" Component={Home} />
-        </Routes>
-    </Router>
+    <Bootstrap.Container>
+      <Bootstrap.Row>
+        <Bootstrap.Col>
+        <Router>
+          <Routes>
+            <Route path="/connect/:providerName/redirect" Component={LoginRedirect} />
+            <Route path="/" Component={Home} />
+          </Routes>
+      </Router>
+        </Bootstrap.Col>
+      </Bootstrap.Row>
+    </Bootstrap.Container>
   );
 }
 
